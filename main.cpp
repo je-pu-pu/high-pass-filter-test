@@ -6,8 +6,6 @@
 
 #include <ranges>
 
-#include <AL/alut.h>
-
 #include <sndfile.h>
 
 // ハイパスフィルタのクラス定義
@@ -147,30 +145,9 @@ int main( int argc, char** argv )
     sf_read_float( infile, input.data(), sfinfo.frames );
     sf_close( infile );
 
-    /*
-    alutInit( & argc, argv );
-
-    ALuint source;
-    ALuint buffer = alutCreateBufferFromFile( "./sample.wav" );
-
-    alGenSources( 1, & source );
-    alSourcei( source, AL_BUFFER, buffer );
-    // alSourcei( source, AL_LOOPING, AL_TRUE );
-    alSourcePlay( source );
-    // alutSleep( 5 );
-
-    getchar();
-
-    alutExit();
-
-    return 0;
-    */
-
     // サンプリングレートとカットオフ周波数を設定
     float sampleRate = 44100.0f;  // 44.1kHz
     float cutoffFrequency = 3800.0f; // 200Hz
-
-
 
     // テスト用のサンプルデータ
     // std::vector<float> input = make_input( sampleRate );
